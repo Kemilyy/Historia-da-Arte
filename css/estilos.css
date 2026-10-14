@@ -61,6 +61,7 @@ h4{
   background-color: rgb(145, 114, 74); 
   padding: 20px;
   padding-bottom: 20px;
+  border-radius: 16px;
 }
 
 .timeline li:nth-child(odd):before {
