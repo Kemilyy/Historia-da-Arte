@@ -7,8 +7,8 @@
     formEl.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        let nome = inputNomeEl.value;
-        let email = inputEmailEl.value;
+        let nome = inputNomeEl.value.trim();
+        let email = inputEmailEl.value.trim();
         let senha = inputSenhaEl.value;
 
         localStorage.setItem("nome", nome);
