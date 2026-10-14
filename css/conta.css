@@ -1,4 +1,3 @@
-/* Login / conta no canto superior direito */
 .conta {
     position: fixed;
     top: 22px;
@@ -14,7 +13,6 @@
     color: #fff;
 }
 
-/* quando não está logado só aparece o botão, então o espaçamento muda */
 .conta:not(:has(.conta-saudacao)) {
     padding: 6px;
 }
@@ -47,7 +45,6 @@
     outline-offset: 2px;
 }
 
-/* celular: esconde a saudação e abre espaço no topo para o título não ficar embaixo da barra */
 @media (max-width: 600px) {
     .conta-saudacao {
         display: none;

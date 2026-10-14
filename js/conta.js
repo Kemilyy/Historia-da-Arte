@@ -1,7 +1,3 @@
-// Área de conta no canto superior direito (usada na página inicial e no quiz).
-// O atributo data-raiz do <script> diz onde fica a raiz do site:
-//   index.html  -> data-raiz=""
-//   html/*.html -> data-raiz="../"
 (() => {
     const raiz = document.currentScript.dataset.raiz || "";
 

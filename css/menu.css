@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* Botão do menu: só os 3 tracinhos brancos, sem fundo */
 .icon-menu {
     position: fixed;
     top: 0;
@@ -17,7 +16,6 @@
     background-size: 40px;
     cursor: pointer;
     z-index: 2;
-    /* sombra leve para os tracinhos não sumirem quando passam sobre os cards claros */
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
 }
 
@@ -60,7 +58,6 @@ menu * {
     text-decoration: none;
 }
 
-/* antes era "li:hover", o que também afetava os itens da timeline */
 .menu li:hover {
     background-color: rgba(255, 255, 255, 0.324);
 }

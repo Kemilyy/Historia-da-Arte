@@ -1,8 +1,3 @@
-// ---------------------------------------------------------------
-// Perguntas do quiz (na ordem em que aparecem).
-// resposta = posição da alternativa correta (começa em 0).
-// Para criar uma pergunta nova, basta copiar um bloco e editar.
-// ---------------------------------------------------------------
 const perguntas = [
   {
     enunciado: "O período da Pré-História é caracterizado por:",
@@ -137,9 +132,7 @@ const perguntas = [
   },
 ];
 
-// ---------------------------------------------------------------
-// Elementos da página
-// ---------------------------------------------------------------
+
 const telaPergunta = document.getElementById("tela-pergunta");
 const telaResultado = document.getElementById("tela-resultado");
 const contadorEl = document.getElementById("contador");
@@ -155,11 +148,8 @@ const textoResultadoEl = document.getElementById("texto-resultado");
 
 let atual = 0;
 let acertos = 0;
-let revelada = false; // a pergunta atual já foi respondida?
+let revelada = false; 
 
-// ---------------------------------------------------------------
-// Mostrar uma pergunta
-// ---------------------------------------------------------------
 function mostrarPergunta() {
   const p = perguntas[atual];
   revelada = false;
@@ -181,7 +171,7 @@ function mostrarPergunta() {
     input.type = "radio";
     input.name = "resposta";
     input.value = i;
-    input.addEventListener("change", verResposta); // responde ao clicar
+    input.addEventListener("change", verResposta); 
 
     const caixa = document.createElement("span");
     caixa.textContent = texto;
@@ -198,9 +188,6 @@ function mostrarPergunta() {
     atual === perguntas.length - 1 ? "Ver resultado" : "Próxima pergunta";
 }
 
-// ---------------------------------------------------------------
-// Ao clicar numa alternativa: mostra a resposta na hora
-// ---------------------------------------------------------------
 function verResposta() {
   if (revelada) return;
 
@@ -231,9 +218,6 @@ function verResposta() {
   btnProxima.disabled = false; // só libera depois de responder
 }
 
-// ---------------------------------------------------------------
-// Próxima pergunta / resultado
-// ---------------------------------------------------------------
 function proxima() {
   if (!revelada) return;
 

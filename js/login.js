@@ -24,7 +24,6 @@
         }
     });
 
-    // Acesso de demonstração: entra sem precisar de cadastro
     btnDemoEl.addEventListener("click", () => {
         localStorage.setItem('logou', '1');
         localStorage.setItem('demo', '1');
