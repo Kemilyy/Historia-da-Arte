@@ -2,27 +2,45 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Quizz História da Arte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz – História da Arte</title>
   <link rel="stylesheet" href="../css/quizz.css">
   <link rel="shortcut icon" href="../img/llogin (1).ico" type="image/x-icon">
 </head>
 <body>
-  <h1>Quizz História da Arte</h1>
-<div class="quiz">
-  <div class="question">
-    <h2>O período da Pré-História é caracterizado por:</h2>
-    <ul>
-      <li><input type="radio" name="question1" value="a"> obras de arte abstratas</li>
-      <li><input type="radio" name="question1" value="b"> obras de arte figurativas</li>
-      <li><input type="radio" name="question1" value="c"> obras de arte religiosas</li>
-      <li><input type="radio" name="question1" value="d"> obras de arte de natureza</li>
-    </ul>
-  </div>
-  <div class="answer">
-    <button class="next">ver resposta</button>
-  </div>
-   
-</div>
+  <h1>Quiz História da Arte</h1>
+
+  <main class="quiz">
+    <!-- Tela das perguntas -->
+    <section id="tela-pergunta">
+      <div class="progresso">
+        <p id="contador">Pergunta 1 de 1</p>
+        <div class="barra" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="barra-preenchida"></span>
+        </div>
+      </div>
+
+      <h2 id="enunciado" tabindex="-1"></h2>
+      <div class="alternativas" id="alternativas" role="radiogroup" aria-labelledby="enunciado"></div>
+
+      <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
+
+      <div class="acoes">
+        <a class="btn btn-secundario" href="../index.html">Voltar ao início</a>
+        <button type="button" id="btn-proxima" class="btn btn-primario" disabled>Próxima pergunta</button>
+      </div>
+    </section>
+
+    <!-- Tela de resultado -->
+    <section id="tela-resultado" hidden>
+      <h2 id="titulo-resultado" tabindex="-1"></h2>
+      <p id="texto-resultado" class="texto-resultado"></p>
+      <div class="acoes">
+        <a class="btn btn-secundario" href="../index.html">Voltar ao início</a>
+        <button type="button" id="btn-refazer" class="btn btn-primario">Refazer o quiz</button>
+      </div>
+    </section>
+  </main>
 
   <script src="../js/quizz.js"></script>
 </body>
