@@ -199,3 +199,21 @@ main #btn-cadastrar:focus-visible {
         min-height: 100px;
     }
 }
+
+.btn-demo {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-demo:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.btn-demo:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
+}

@@ -1,6 +1,5 @@
-if (localStorage.getItem('logou') !== '1') {
-    location.href = "./html/login.html";
-}
+// O site agora é aberto a todos: não há mais redirecionamento para o login.
+// O login (e o acesso de demonstração) ficam no canto superior direito, em conta.js.
 
 const iconMenuEl = document.querySelector('.icon-menu');
 const menuEl = document.querySelector('.menu');
@@ -13,6 +12,7 @@ function alternarMenu(abrir) {
 
 iconMenuEl.addEventListener('click', () => alternarMenu());
 
+// fecha o menu com Esc ou clicando fora dele
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') alternarMenu(false);
 });

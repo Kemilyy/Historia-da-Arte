@@ -3,7 +3,7 @@
     const inputEmailEl = document.querySelector("#input-email");
     const inputSenhaEl = document.querySelector("#input-senha");
     const msgErroEl = document.querySelector("#msg-erro");
-    const btnVisitanteEl = document.querySelector("#btn-visitante");
+    const btnDemoEl = document.querySelector("#btn-demo");
 
     formEl.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -16,17 +16,18 @@
         let teste = testeEmail && testeSenha;
 
         if (teste) {
-            localStorage.setItem("logou", "1");
-            localStorage.removeItem("visitante");
+            localStorage.setItem('logou', '1');
+            localStorage.removeItem('demo');
             window.location.href = "../index.html";
         } else {
             msgErroEl.style.display = "block";
         }
     });
 
-    btnVisitanteEl.addEventListener("click", () => {
-        localStorage.setItem("logou", "1"); 
-        localStorage.setItem("visitante", "1"); 
+    // Acesso de demonstração: entra sem precisar de cadastro
+    btnDemoEl.addEventListener("click", () => {
+        localStorage.setItem('logou', '1');
+        localStorage.setItem('demo', '1');
         window.location.href = "../index.html";
     });
 })();

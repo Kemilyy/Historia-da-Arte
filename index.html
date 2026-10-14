@@ -6,13 +6,14 @@
     <title>Timeline</title>
     <link rel="stylesheet" href="css/estilos.css" />
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/conta.css">
   </head>
   <body>
     <h1>História da Arte</h1>
-    <div class="icon-menu"></div>
-    <div class="menu">
+    <button type="button" class="icon-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"></button>
+    <div class="menu" id="menu">
       <ul>
-        <li><a href="html/" data-text="time-line">TIME-LINE</a></li>
+        <li><a href="index.html" data-text="time-line">TIME-LINE</a></li>
         <li><a href="html/quizz.html" data-text="quiz">QUIZ</a></li>
         <li><a href="html/cadastro.html" data-text="minha conta">MINHA CONTA</a></li>
       </ul>
@@ -48,7 +49,7 @@
             </p>
           </div>
           <div class="time">
-            <h4>800 a.C. — 476 d.C.</h4>
+            <h4>800 a.C. — 476 d.C.</h4>
           </div>
         </li>
         <li>
@@ -122,6 +123,7 @@
         <div style="clear: both"></div>
       </ul>
     </div>
+    <script src="js/conta.js" data-raiz=""></script>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz – História da Arte</title>
   <link rel="stylesheet" href="../css/quizz.css">
+  <link rel="stylesheet" href="../css/conta.css">
   <link rel="shortcut icon" href="../img/llogin (1).ico" type="image/x-icon">
 </head>
 <body>
   <h1>Quiz História da Arte</h1>
 
   <main class="quiz">
+    <!-- Tela das perguntas -->
     <section id="tela-pergunta">
       <div class="progresso">
         <p id="contador">Pergunta 1 de 1</p>
@@ -26,10 +28,12 @@
 
       <div class="acoes">
         <a class="btn btn-secundario" href="../index.html">Voltar ao início</a>
+        <button type="button" id="btn-resposta" class="btn btn-secundario" disabled>Ver resposta</button>
         <button type="button" id="btn-proxima" class="btn btn-primario" disabled>Próxima pergunta</button>
       </div>
     </section>
 
+    <!-- Tela de resultado -->
     <section id="tela-resultado" hidden>
       <h2 id="titulo-resultado" tabindex="-1"></h2>
       <p id="texto-resultado" class="texto-resultado"></p>
@@ -40,6 +44,7 @@
     </section>
   </main>
 
+  <script src="../js/conta.js" data-raiz="../"></script>
   <script src="../js/quizz.js"></script>
 </body>
 </html>

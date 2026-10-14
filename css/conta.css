@@ -1,0 +1,63 @@
+/* Login / conta no canto superior direito */
+.conta {
+    position: fixed;
+    top: 22px;
+    right: 16px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 6px 6px 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    font-family: 'Frank Ruhl Libre', serif;
+    color: #fff;
+}
+
+/* quando não está logado só aparece o botão, então o espaçamento muda */
+.conta:not(:has(.conta-saudacao)) {
+    padding: 6px;
+}
+
+.conta-saudacao {
+    font-size: 1rem;
+}
+
+.conta-botao {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.conta-botao:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.conta-botao:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* celular: esconde a saudação e abre espaço no topo para o título não ficar embaixo da barra */
+@media (max-width: 600px) {
+    .conta-saudacao {
+        display: none;
+    }
+
+    .conta:has(.conta-saudacao) {
+        padding: 6px;
+    }
+
+    body {
+        padding-top: 72px;
+    }
+}
