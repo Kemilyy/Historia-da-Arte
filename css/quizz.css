@@ -6,8 +6,8 @@
   --marrom: rgb(145, 114, 74);
   --areia: rgb(182, 150, 107);
   --areia-hover: rgb(196, 166, 124);
-  --acerto: #1f4d2e;
-  --erro: #6e1f1a;
+  --acerto: #4f7a5a;
+  --erro: #8a4b45;
 }
 
 * {
@@ -130,7 +130,7 @@ h2:focus {
   outline-offset: 2px;
 }
 
-/* depois de "ver resposta" */
+/* depois de responder */
 .alternativas.travado .alternativa {
   cursor: default;
 }

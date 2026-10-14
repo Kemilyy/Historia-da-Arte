@@ -148,7 +148,6 @@ const barraPreenchidaEl = document.getElementById("barra-preenchida");
 const enunciadoEl = document.getElementById("enunciado");
 const alternativasEl = document.getElementById("alternativas");
 const feedbackEl = document.getElementById("feedback");
-const btnResposta = document.getElementById("btn-resposta");
 const btnProxima = document.getElementById("btn-proxima");
 const btnRefazer = document.getElementById("btn-refazer");
 const tituloResultadoEl = document.getElementById("titulo-resultado");
@@ -156,15 +155,13 @@ const textoResultadoEl = document.getElementById("texto-resultado");
 
 let atual = 0;
 let acertos = 0;
-let contabilizada = false; // a pergunta atual já entrou na pontuação?
-let revelada = false; // a resposta da pergunta atual já foi mostrada?
+let revelada = false; // a pergunta atual já foi respondida?
 
 // ---------------------------------------------------------------
 // Mostrar uma pergunta
 // ---------------------------------------------------------------
 function mostrarPergunta() {
   const p = perguntas[atual];
-  contabilizada = false;
   revelada = false;
 
   contadorEl.textContent = `Pergunta ${atual + 1} de ${perguntas.length}`;
@@ -184,7 +181,7 @@ function mostrarPergunta() {
     input.type = "radio";
     input.name = "resposta";
     input.value = i;
-    input.addEventListener("change", aoEscolher);
+    input.addEventListener("change", verResposta); // responde ao clicar
 
     const caixa = document.createElement("span");
     caixa.textContent = texto;
@@ -196,66 +193,49 @@ function mostrarPergunta() {
   feedbackEl.hidden = true;
   feedbackEl.innerHTML = "";
 
-  btnResposta.disabled = true;
   btnProxima.disabled = true;
   btnProxima.textContent =
     atual === perguntas.length - 1 ? "Ver resultado" : "Próxima pergunta";
 }
 
-// Os botões só são liberados depois que uma alternativa é marcada
-function aoEscolher() {
-  if (revelada) return;
-  btnResposta.disabled = false;
-  btnProxima.disabled = false;
-}
-
-function alternativaMarcada() {
-  const marcada = alternativasEl.querySelector("input:checked");
-  return marcada ? Number(marcada.value) : null;
-}
-
-// Conta o ponto uma única vez por pergunta
-function contabilizar() {
-  if (contabilizada) return;
-  contabilizada = true;
-  if (alternativaMarcada() === perguntas[atual].resposta) acertos++;
-}
-
 // ---------------------------------------------------------------
-// Ver resposta
+// Ao clicar numa alternativa: mostra a resposta na hora
 // ---------------------------------------------------------------
 function verResposta() {
-  const escolhida = alternativaMarcada();
-  if (escolhida === null) return;
+  if (revelada) return;
 
+  const marcada = alternativasEl.querySelector("input:checked");
+  if (!marcada) return;
+
+  const escolhida = Number(marcada.value);
   const p = perguntas[atual];
-  contabilizar();
+  const acertou = escolhida === p.resposta;
+
   revelada = true;
+  if (acertou) acertos++;
 
   const caixas = alternativasEl.querySelectorAll(".alternativa span");
   alternativasEl.querySelectorAll("input").forEach((input) => (input.disabled = true));
   alternativasEl.classList.add("travado");
   caixas[p.resposta].classList.add("correta");
-  if (escolhida !== p.resposta) caixas[escolhida].classList.add("errada");
+  if (!acertou) caixas[escolhida].classList.add("errada");
 
-  const acertou = escolhida === p.resposta;
   feedbackEl.innerHTML = "";
   const titulo = document.createElement("strong");
   titulo.textContent = acertou
     ? "Resposta correta!"
-    : `Resposta incorreta. A correta é: ${p.alternativas[p.resposta]}.`;
+    : `A resposta correta é: ${p.alternativas[p.resposta]}.`;
   feedbackEl.append(titulo, p.explicacao);
   feedbackEl.hidden = false;
 
-  btnResposta.disabled = true;
+  btnProxima.disabled = false; // só libera depois de responder
 }
 
 // ---------------------------------------------------------------
 // Próxima pergunta / resultado
 // ---------------------------------------------------------------
 function proxima() {
-  if (alternativaMarcada() === null) return; // só avança com uma alternativa marcada
-  contabilizar();
+  if (!revelada) return;
 
   if (atual < perguntas.length - 1) {
     atual++;
@@ -300,7 +280,6 @@ function refazer() {
   enunciadoEl.focus();
 }
 
-btnResposta.addEventListener("click", verResposta);
 btnProxima.addEventListener("click", proxima);
 btnRefazer.addEventListener("click", refazer);
 
