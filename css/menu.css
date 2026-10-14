@@ -3,16 +3,26 @@
 .icon-menu {
     position: fixed;
     top: 0;
-    width: 70px;
-    height: 70px;
-    background-color: white;
-    cursor: pointer;
-    background-image: url(../img/menu.png);
+    left: 0;
+    width: 56px;
+    height: 56px;
+    margin: 16px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Cg fill='white'%3E%3Crect x='3' y='7' width='30' height='4' rx='2'/%3E%3Crect x='3' y='16' width='30' height='4' rx='2'/%3E%3Crect x='3' y='25' width='30' height='4' rx='2'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 6px;
-    margin: 20px;
+    background-position: center;
+    background-size: 40px;
+    cursor: pointer;
     z-index: 2;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.55));
+}
+
+.icon-menu:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 8px;
 }
 
 .menu {
@@ -22,15 +32,14 @@
     height: 100vh;
     width: 300px;
     background-color: rgb(107, 85, 55);
-    transition: 1s;
+    transition: transform 0.4s ease;
     padding-top: 100px;
     z-index: 1;
     padding-right: 20px;
 }
 
 .ativo {
-    transform: translateX(00%);
-    transition: 1s;
+    transform: translateX(0%);
 }
 
 menu * {
@@ -42,7 +51,6 @@ menu * {
     padding: 20px;
     cursor: pointer;
     border-radius: 8px;
-    font-: ;
 }
 
 .menu a {
@@ -50,6 +58,12 @@ menu * {
     text-decoration: none;
 }
 
-li:hover {
+.menu li:hover {
     background-color: rgba(255, 255, 255, 0.324);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .menu {
+        transition: none;
+    }
 }
