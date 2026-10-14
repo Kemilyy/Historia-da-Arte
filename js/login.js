@@ -25,8 +25,8 @@
     });
 
     btnVisitanteEl.addEventListener("click", () => {
-        localStorage.setItem("logou", "1"); // libera o acesso ao site
-        localStorage.setItem("visitante", "1"); // marca que é um visitante
+        localStorage.setItem("logou", "1"); 
+        localStorage.setItem("visitante", "1"); 
         window.location.href = "../index.html";
     });
 })();
